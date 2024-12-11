@@ -1,5 +1,7 @@
 import Home from '../view/Home';
 import Mine from '../view/Mine';
+import myLove from '../view/myLove';
+
 @Entry
 @Component
 struct Index {
@@ -35,7 +37,7 @@ struct Index {
         // 首页内容
         Home()
       }
-      .padding({ left: 12, right: 12 })
+      .padding({ left: 5, right: 12 })
       .backgroundColor($r('app.color.mainPage_backgroundColor'))
       .tabBar(this.TabBuilder('首页', 0, $r('app.media.home_selected'), $r('app.media.home_normal')))
 
@@ -46,6 +48,15 @@ struct Index {
       .padding({ left: 12, right: 12 })
       .backgroundColor($r('app.color.mainPage_backgroundColor'))
       .tabBar(this.TabBuilder('我的', 1, $r('app.media.mine_selected'), $r('app.media.mine_normal')))
+
+      // TabContent() {
+      //   // love
+      //   myLove()
+      // }
+      // .padding({ left: 12, right: 12 })
+      // .backgroundColor($r('app.color.mainPage_backgroundColor'))
+      // .tabBar(this.TabBuilder('首页', 0, $r('app.media.love'), $r('app.media.home_normal')))
+
     }
     .width('100%')
     .backgroundColor(Color.White)
@@ -54,5 +65,6 @@ struct Index {
     .onChange((index: number) => {
       this.currentIndex = index;
     })
+
   }
 }

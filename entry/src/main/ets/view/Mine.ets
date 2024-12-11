@@ -10,7 +10,8 @@ import mainViewModel from '../viewmodel/IndexViewModel';
 export default struct Mine {
 
   //接收传递过来的参数
-  @State account: string = router.getParams()?.['account'];
+  // router.getParams()?.['account'];
+  @State account: string = '';
 
   @Builder settingCell(item: ItemData) {
     Row() {

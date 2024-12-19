@@ -5,7 +5,6 @@ import ItemData from '../bean/ItemData';
  * 将数据绑定到组件并提供接口
  */
 export class IndexViewModel {
-
   /**
    * 获取轮播图数据
    */
@@ -24,14 +23,14 @@ export class IndexViewModel {
    */
   getFirstGridData(): Array<ItemData> {
     let firstGridData: ItemData[] = [
-      new ItemData('我的最爱', $r('app.media.love'),'myLove'),
-      new ItemData('历史记录', $r('app.media.record'),'record'),
-      new ItemData('消息', $r('app.media.message',),'record'),
-      new ItemData('购物车', $r('app.media.shopping'),'record'),
-      new ItemData('我的目标', $r('app.media.target'),'record'),
-      new ItemData('圈子', $r('app.media.circle'),'record'),
-      new ItemData('收藏', $r('app.media.favorite'),'record'),
-      new ItemData('回收站', $r('app.media.recycle'),'record')
+      new ItemData('我的最爱', $r('app.media.love'), 'myLove'),
+      new ItemData('历史记录', $r('app.media.record'), 'record'),
+      new ItemData('消息', $r('app.media.message',), 'record'),
+      new ItemData('购物车', $r('app.media.shopping'), 'record'),
+      new ItemData('我的目标', $r('app.media.target'), 'record'),
+      new ItemData('圈子', $r('app.media.circle'), 'record'),
+      new ItemData('收藏', $r('app.media.favorite'), 'record'),
+      new ItemData('回收站', $r('app.media.recycle'), 'record')
     ]
     return firstGridData
   }
@@ -65,6 +64,18 @@ export class IndexViewModel {
     ]
     return settingListData
   }
-}
 
+  getCollectionData(): Array<ItemData> {
+    let CollectionData: ItemData[] = [
+      new ItemData('推送通知', $r('app.media.news'), '开关'),
+      new ItemData('数据管理', $r('app.media.data'), 'null'),
+      new ItemData('菜单设置', $r('app.media.menu'), 'null'),
+      new ItemData('关于', $r('app.media.about'), 'null'),
+      new ItemData('清除缓存', $r('app.media.storage'), 'null'),
+      new ItemData('隐私协议', $r('app.media.privacy'), 'null')
+    ]
+    return CollectionData
+
+  }
+}
 export default new IndexViewModel()

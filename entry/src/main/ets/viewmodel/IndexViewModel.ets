@@ -25,8 +25,8 @@ export class IndexViewModel {
     let firstGridData: ItemData[] = [
       new ItemData('我的最爱', $r('app.media.love'), 'myLove'),
       new ItemData('历史记录', $r('app.media.record'), 'record'),
-      new ItemData('消息', $r('app.media.message',), 'record'),
-      new ItemData('购物车', $r('app.media.shopping'), 'record'),
+      new ItemData('消息', $r('app.media.message',), 'messagePage'),
+      new ItemData('购物车', $r('app.media.shopping'), 'cart'),
       new ItemData('我的目标', $r('app.media.target'), 'record'),
       new ItemData('圈子', $r('app.media.circle'), 'record'),
       new ItemData('收藏', $r('app.media.favorite'), 'record'),
@@ -65,17 +65,20 @@ export class IndexViewModel {
     return settingListData
   }
 
-  getCollectionData(): Array<ItemData> {
-    let CollectionData: ItemData[] = [
-      new ItemData('推送通知', $r('app.media.news'), '开关'),
-      new ItemData('数据管理', $r('app.media.data'), 'null'),
-      new ItemData('菜单设置', $r('app.media.menu'), 'null'),
-      new ItemData('关于', $r('app.media.about'), 'null'),
-      new ItemData('清除缓存', $r('app.media.storage'), 'null'),
-      new ItemData('隐私协议', $r('app.media.privacy'), 'null')
+  getLoveGridData(): Array<ItemData> {
+    let loveGridData: ItemData[] = [
+      new ItemData('排行榜', $r('app.media.th1'), '当前热品尽在掌握'),
+      new ItemData('美食新品', $r('app.media.th2'), '最新菜品，马上发布'),
+      new ItemData('更多团购', $r('app.media.th3'), '更多大牌敬请期待'),
+      new ItemData('发现好物', $r('app.media.th4'), '更多内容等您探索'),
+      new ItemData('排行榜', $r('app.media.th1'), '当前热品尽在掌握'),
+      new ItemData('美食新品', $r('app.media.th2'), '最新菜品，马上发布'),
+      new ItemData('更多团购', $r('app.media.th3'), '更多大牌敬请期待'),
+      new ItemData('发现好物', $r('app.media.th4'), '更多内容等您探索')
     ]
-    return CollectionData
-
+    return loveGridData
   }
+
 }
+
 export default new IndexViewModel()

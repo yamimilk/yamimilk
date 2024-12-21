@@ -2,6 +2,11 @@ import mainViewModel from '../viewmodel/IndexViewModel';
 import ItemData from '../bean/ItemData';
 import myLove from '../view/myLove';
 import record from '../view/record';
+import MessagePage from './messagePage';
+import Record from '../view/record';
+import messagePage from './messagePage';
+import CartPage from './cart';
+
 /**
  * 首页
  */
@@ -123,12 +128,17 @@ export default struct Home {
   PagesMap(name: string) {
     if (name == "myLove") {
       myLove()
-    } else if(name == "record"){
-      record()
     }
-    else if (name == "MySharePage") {
-      myLove()
+      else if (name == "messagePage") {
+        messagePage()
+      }
+      else if(name == "record"){
+      Record()
     }
+    else if(name == "cart") {
+      CartPage()
+    }
+
 
   }
 }

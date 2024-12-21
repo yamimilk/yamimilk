@@ -1,44 +1,63 @@
-import mainViewModel from '../viewmodel/IndexViewModel';
 import ItemData from '../bean/ItemData';
+import mainViewModel from '../viewmodel/IndexViewModel';
 
-/**
- * 我的收藏页面
- */
 @Entry
+  /**
+   * 我的收藏
+   */
 @Component
-export default struct MyCollection {
+export default struct myLove {
+  // 接收传递过来的参数
+  @State account: string = '';
 
-  private swiperController: SwiperController = new SwiperController();
+  @Builder
+  settingCell(item: ItemData) {
+    Row() {
+      Row({ space: 12 }) {
+        Image(item.img)
+          .width(22)
+          .height(22)
+        Text(item.title)
+          .fontSize(16)
+      }
+    }
+  }
 
   build() {
     Scroll() {
-      Column({ space: 12 }) {
-        // 我的收藏
-        Column() {
-          Text('我的收藏')
-            .fontWeight(FontWeight.Medium)
-            .fontSize(24)
-            .margin({ top: 12 })
-            .padding({ left: 12 })
-        }
-        .width('100%')
-        .alignItems(HorizontalAlign.Start)
-        // 收藏列表
-        List() {
-          ForEach(mainViewModel.getCollectionData(), (item: ItemData) => {
-            ListItem() {
-              Column() {
-                Image(item.img)
-                  .borderRadius(16)
-                Text(item.title)
-                  .fontSize(16)
-                  .margin({ top: 8 })
-              }
+      NavDestination() {
+        Column({ space: 12 }) {
+          // 第二个网格布局（设置每行 4 个项目，每屏显示 6 行）
+          Scroll() {
+            Grid() {
+              ForEach(mainViewModel.getLoveGridData(), (loveItem: ItemData) => {
+                GridItem() {
+                  Column() {
+                    Text(loveItem.title)
+                      .fontSize(30)
+                      .fontWeight(FontWeight.Medium)
+                      .fontColor('blue')
+                    Text(loveItem.others)
+                      .margin({ top: 4 })
+                      .fontSize(12)
+                      .fontColor($r('app.color.home_grid_fontColor'))
+                  }
+                }
+                .borderRadius(12)
+                .align(Alignment.TopStart)
+                .backgroundImage(loveItem.img) // 确保图片正确引用
+                .backgroundImageSize(ImageSize.Cover) // 设置背景图片大小
+                .height('100vp') // 确保每个项目的高度合适
+              }, (loveItem: ItemData) => JSON.stringify(loveItem))
             }
-            .padding({ top: 12 })
-          }, (item: ItemData) => JSON.stringify(item.title))
+            .width('100%')
+            .columnsTemplate('1fr 1fr 1fr 1fr') // 每行 4 个项目
+            .rowsTemplate('1fr 1fr 1fr 1fr 1fr 1fr') // 显示 6 行
+            .columnsGap(5)
+            .rowsGap(5)
+            .height('auto')
+          }
         }
-        .margin({ top: 24 })
       }
     }
   }

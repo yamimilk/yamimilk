@@ -6,6 +6,7 @@ import mainViewModel from '../viewmodel/IndexViewModel';
 /**
  * 我的
  */
+@Entry
 @Component
 export default struct Mine {
 

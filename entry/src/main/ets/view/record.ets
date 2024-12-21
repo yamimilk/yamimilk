@@ -7,7 +7,7 @@ import mainViewModel from '../viewmodel/IndexViewModel';
  * 我的
  */
 @Component
-export default struct Mine {
+export default struct Record {
   //接收传递过来的参数
   // router.getParams()?.['account'];
   @State account: string = '';
@@ -49,7 +49,7 @@ export default struct Mine {
       NavDestination() {
         Column({ space: 12 }) {
           Column() {
-            Text('我的')
+            Text('我的历史记录')
               .fontWeight(FontWeight.Medium)
               .fontSize(24)
               .margin({ top: 12 })
